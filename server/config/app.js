@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),   
-    express = require('./express');
+var mongoose = require('mongoose'),
+     express = require('./express');
 
 module.exports.start = function() {
   var app = express.init();

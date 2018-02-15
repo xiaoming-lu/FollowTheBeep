@@ -1,6 +1,6 @@
 var path = require('path'),  
     express = require('express'), 
-    mongoose = require('mongoose'),
+   mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     listingsRouter = require('../routes/listings.server.routes'), 
@@ -8,7 +8,7 @@ var path = require('path'),
 
 module.exports.init = function() {
   //connect to database from heroku config
-  mongoose.connect(process.env.uri);
+  mongoose.connect("mongodb://xiaominglu:sunrise123@ds117819.mlab.com:17819/cen-bootcamp");
 
   //initialize app
   var app = express();
