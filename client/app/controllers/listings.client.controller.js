@@ -15,21 +15,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
     };
 
     $scope.findOne = function() {
-      debugger;
       $scope.loading = true;
-
-      /*
-        Take a look at 'list-listings.client.view', and find the ui-sref attribute that switches the state to the view 
-        for a single listing. Take note of how the state is switched: 
-
-          ui-sref="listings.view({ listingId: listing._id })"
-
-        Passing in a parameter to the state allows us to access specific properties in the controller.
-
-        Now take a look at 'view-listing.client.view'. The view is initialized by calling "findOne()". 
-        $stateParams holds all the parameters passed to the state, so we are able to access the id for the 
-        specific listing we want to find in order to display it to the user. 
-       */
 
       var id = $stateParams.listingId;
 
