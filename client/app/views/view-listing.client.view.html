@@ -1,20 +1,25 @@
 <img id="loader" ng-show="loading" src="/../../img/484.gif">
 <div class="row" ng-controller="ListingsController" ng-init="findOne()">
-  <div class="col-md-offset-1 col-md-10">
+  <div class="col-md-offset-1 col-md-11">
     <div ng-show="error" class="text-danger">
       <strong ng-bind="error"></strong>
     </div>
     <div class="jumbotron">
   <div>
-    <button type="button" class="btn btn-primary" id="sourceButton">Play</button>
+
 
   </div>
       <div ng-show="listing">
-        <h2>{{listing.name}}</h2>
+        <h1> <span class="glyphicon glyphicon-map-marker"></span>  {{listing.name}}</h1>
       </div>
     </div>
-    <div>
-      <img id="loader" src="/../../img/giphy.gif">
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+      <img width="1000" src="/../../img/giphy.gif">
+
   </div>
 </div>

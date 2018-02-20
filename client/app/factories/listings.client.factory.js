@@ -28,7 +28,7 @@ angular.module('listings').factory('Listings', ['$http',
       }, 
 
       delete: function(id) {
-   
+
         return $http.delete(host+'/api/listings/' + id);
       }
     };
