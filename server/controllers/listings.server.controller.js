@@ -2,7 +2,7 @@
 /* Dependencies */
 var mongoose = require('mongoose'), 
     Listing = require('../models/listings.server.model.js');
-
+var audio = require('node-core-audio');
 
 /* Create a listing */
 exports.create = function(req, res) {

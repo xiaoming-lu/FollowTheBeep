@@ -5,10 +5,16 @@
       <strong ng-bind="error"></strong>
     </div>
     <div class="jumbotron">
+  <div>
+    <button type="button" class="btn btn-primary" id="sourceButton">Play</button>
 
+  </div>
       <div ng-show="listing">
         <h2>{{listing.name}}</h2>
       </div>
+    </div>
+    <div>
+      <img id="loader" src="/../../img/giphy.gif">
     </div>
   </div>
 </div>
