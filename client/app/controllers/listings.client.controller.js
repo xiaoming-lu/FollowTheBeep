@@ -32,6 +32,25 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
     };
 
     $scope.findOne = function readOne() {
+      if ('ondeviceorientationabsolute' in window) {
+        // Chrome 50+ specific
+        window.addEventListener('deviceorientationabsolute', handleOrientation);
+      } else if ('ondeviceorientation' in window) {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+
+      function handleOrientation(event) {
+        var alpha;
+        if (event.absolute) {
+          alpha = event.alpha;
+        } else if (event.hasOwnProperty('webkitCompassHeading')) {
+          // get absolute orientation for Safari/iOS
+          alpha = 360 - event.webkitCompassHeading; // conversion taken from a comment on Google Documentation, not tested
+        } else {
+          console.log('Could not retrieve absolute orientation');
+        }
+        document.getElementById("demo").innerHTML = alpha;
+      }
       $scope.loading = true;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
