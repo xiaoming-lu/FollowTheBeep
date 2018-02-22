@@ -7,6 +7,7 @@
 <h1>Follow The Beep</h1>
 <div ng-controller="ListingsController" ng-init="find()">
 
+    <p hidden id="waveform">This paragraph should be hidden.</p>
     <!-- 
       If an error occurs while we try to save the listing using our server's API, it will show up here. 
       This is made possible by handling any errors by binding them to $scope.error. 
@@ -30,18 +31,20 @@
   <br>
   <br>
 
-
+    <div class="scroll-table">
       <table class="table table-striped table-hover">
         <tr>
           <th>Building Name</th>
-          <th></th>
         </tr>
 
         <tr ng-repeat="listing in listings | filter: query" ui-sref="listings.view({ listingId: listing._id })">
           <td>{{listing.name}}</td>
         </tr>
       </table>
-
+    </div>
+    <br>
+    <br>
+    <img width="1000" src="/../../img/giphy.gif">
 
 
 </div>

@@ -2,7 +2,16 @@
 /* Dependencies */
 var mongoose = require('mongoose'), 
     Listing = require('../models/listings.server.model.js');
-var audio = require('node-core-audio');
+var fs = require("fs");
+
+/*read original sound array */
+exports.readSound= function(req,res){
+    var text = fs.readFileSync("/../../soundsource/original.txt", "utf-8");
+    var array = text.split(" ");
+    console.log(array);
+    return res.status(200).send({data: array});
+};
+
 
 /* Create a listing */
 exports.create = function(req, res) {

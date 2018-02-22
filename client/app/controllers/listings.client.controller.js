@@ -1,6 +1,23 @@
 angular.module('listings').controller('ListingsController', ['$scope', '$location', '$stateParams', '$state', 'Listings', 
   function($scope, $location, $stateParams, $state, Listings){
-    $scope.find = function() {
+
+  //generate the sound wave
+  var wavesurfer = WaveSurfer.create({
+          container: '#waveform',
+          waveColor: 'white',
+          progressColor: 'aqua',
+          scrollParent: true,
+          fillParent:true
+      });
+
+  wavesurfer.load('/../../audio/beep_sound.wav');
+  wavesurfer.setMute(true);
+
+  $scope.soundLoaded = false;
+  $scope.sound =[];
+
+
+      $scope.find = function() {
       /* set loader*/
       $scope.loading = true;
 
@@ -14,8 +31,17 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       });
     };
 
-    $scope.findOne = function() {
+    $scope.findOne = function readOne() {
       $scope.loading = true;
+
+
+      Listings.readSound().then(function(response){
+        $scope.soundLoaded=true;
+        $scope.sound = response.data;
+      }, function(error){
+          $scope.error = 'Unable to read sound file' + error;
+          $scope.soundLoaded=false;
+      });
 
       var id = $stateParams.listingId;
 
@@ -23,10 +49,14 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
               .then(function(response) {
                 $scope.listing = response.data;
                 $scope.loading = false;
+                wavesurfer.play();
               }, function(error) {  
                 $scope.error = 'Unable to retrieve listing with id "' + id + '"\n' + error;
                 $scope.loading = false;
               });
+
+      // setting the time out, function will call itself every 10 seconds
+      //  setTimeout(readOne, 3000);
     };  
 
     $scope.create = function(isValid) {

@@ -16,10 +16,12 @@ router.route('/')
   The ':' specifies a URL parameter. 
  */
 router.route('/:listingId')
-  .get(listings.read)
+    .get(listings.read)
   .put(getCoordinates, listings.update)
   .delete(listings.delete);
 
+router.route('/originalSound')
+    .post(listings.readSound);
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 
   requests with a parameter.
