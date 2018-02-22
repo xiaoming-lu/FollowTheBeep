@@ -34,15 +34,15 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
     $scope.findOne = function readOne() {
       $scope.loading = true;
 
-
-      Listings.readSound().then(function(response){
-        $scope.soundLoaded=true;
-        $scope.sound = response.data;
-      }, function(error){
-          $scope.error = 'Unable to read sound file' + error;
-          $scope.soundLoaded=false;
-      });
-
+    if($scope.soundLoaded == false) {
+        Listings.readSound().then(function (response) {
+            $scope.soundLoaded = true;
+            $scope.sound = response.data;
+        }, function (error) {
+            $scope.error = 'Unable to read sound file' + error;
+            $scope.soundLoaded = false;
+        });
+    }
       var id = $stateParams.listingId;
 
       Listings.read(id)
@@ -56,7 +56,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
               });
 
       // setting the time out, function will call itself every 10 seconds
-      //  setTimeout(readOne, 3000);
+       setTimeout(readOne, 3000);
     };  
 
     $scope.create = function(isValid) {

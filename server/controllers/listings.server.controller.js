@@ -9,8 +9,8 @@ exports.readSound= function(req,res){
   var appRoot = process.cwd();
   var text = fs.readFileSync(appRoot + "/server/soundsource/original.txt", "utf-8");
 
-  var array = text.split(" ");
-  console.log(array);
+  var array = text.split("\t");
+  console.log("hi");
   return res.status(200).send({data: array});
 };
 
