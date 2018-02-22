@@ -42,11 +42,9 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
           $scope.location = pos;
           console.log(pos);
         }, function() {
-          handleLocationError(true, infoWindow, map.getCenter());
         });
       } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
       }
       if (window.DeviceOrientationEvent) {
   // Listen for the deviceorientation event and handle the raw data
@@ -137,7 +135,8 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       var listing = {
         name: $scope.name,
         code: $scope.code,
-        address: $scope.address
+        address: $scope.address,
+        direction: $scope.direction
       };
 
       /* Save the article using the Listings factory */
