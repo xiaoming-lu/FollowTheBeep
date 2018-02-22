@@ -30,26 +30,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         $scope.error = 'Unable to retrieve listings!\n' + error;
       });
     };
-    if (window.DeviceOrientationEvent) {
-      if ('ondeviceorientationabsolute' in window) {
-      // Chrome 50+ specific
-      window.addEventListener('deviceorientationabsolute', handleOrientation);
-    } else if ('ondeviceorientation' in window) {
-      window.addEventListener('deviceorientation', handleOrientation);
-    }
-    function handleOrientation(event) {
-      var alpha;
-      if (event.absolute) {
-        alpha = event.alpha;
-      } else if (event.hasOwnProperty('webkitCompassHeading')) {
-        // get absolute orientation for Safari/iOS
-        alpha = 360 - event.webkitCompassHeading; // conversion taken from a comment on Google Documentation, not tested
-      } else {
-        console.log('Could not retrieve absolute orientation');
-      }
 
-      $scope.direction = alpha;
-    }
     $scope.findOne = function readOne() {
       $scope.loading = true;
       if (navigator.geolocation) {
@@ -65,7 +46,19 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       } else {
         // Browser doesn't support Geolocation
       }
+      if (window.DeviceOrientationEvent) {
+  // Listen for the deviceorientation event and handle the raw data
+  window.addEventListener('deviceorientation', function(eventData) {
+    var compassdir;
+
+    if(event.webkitCompassHeading) {
+      // Apple works only with this, alpha doesn't work
+      compassdir = event.webkitCompassHeading;
     }
+    else compassdir = event.alpha;
+    $scope.direction = compassdir;
+  });
+}
     if($scope.soundLoaded == false) {
         Listings.readSound().then(function (response) {
             $scope.soundLoaded = true;
