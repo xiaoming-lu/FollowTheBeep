@@ -1,15 +1,17 @@
 
 /* Dependencies */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     Listing = require('../models/listings.server.model.js');
 var fs = require("fs");
 
 /*read original sound array */
 exports.readSound= function(req,res){
-    var text = fs.readFileSync("/../../soundsource/original.txt", "utf-8");
-    var array = text.split(" ");
-    console.log(array);
-    return res.status(200).send({data: array});
+  var appRoot = process.cwd();
+  var text = fs.readFileSync(appRoot + "/server/soundsource/original.txt", "utf-8");
+
+  var array = text.split(" ");
+  console.log(array);
+  return res.status(200).send({data: array});
 };
 
 
@@ -22,7 +24,7 @@ exports.create = function(req, res) {
   /* save the coordinates (located in req.results if there is an address property) */
   if(req.results) {
     listing.coordinates = {
-      latitude: req.results.lat, 
+      latitude: req.results.lat,
       longitude: req.results.lng
     };
   }
@@ -56,7 +58,7 @@ exports.update = function(req, res) {
   /* save the coordinates (located in req.results if there is an address property) */
   if(req.results) {
     listing.coordinates = {
-      latitude: req.results.lat, 
+      latitude: req.results.lat,
       longitude: req.results.lng
     };
   }
@@ -98,11 +100,11 @@ exports.list = function(req, res) {
   });
 };
 
-/* 
-  Middleware: find a listing by its ID, then pass it to the next request handler. 
+/*
+  Middleware: find a listing by its ID, then pass it to the next request handler.
 
-  HINT: Find the listing using a mongoose query, 
-        bind it to the request object as the property 'listing', 
+  HINT: Find the listing using a mongoose query,
+        bind it to the request object as the property 'listing',
         then finally call next
  */
 exports.listingByID = function(req, res, next, id) {
