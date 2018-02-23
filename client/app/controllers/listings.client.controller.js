@@ -49,7 +49,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         } else {
           console.log('Could not retrieve absolute orientation');
         }
-        document.getElementById("demo").innerHTML = alpha;
+        $scope.direction = alpha;
       }
       $scope.loading = true;
       if (navigator.geolocation) {
