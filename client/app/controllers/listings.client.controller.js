@@ -1,9 +1,13 @@
 angular.module('listings').controller('ListingsController', ['$scope', '$location', '$stateParams', '$state', 'Listings',
   function($scope, $location, $stateParams, $state, Listings){
       $scope.alpha = 0;
+      $scope.dest =null;
+      $scope.source = null;
+      $scope.directionAngle = null;
+      $scope.resolvedDirection ="Undefined";
+      $scope.listing = null;
 
-
-  //generate the sound wave
+      //generate the sound wave
   var wavesurfer = WaveSurfer.create({
           container: '#waveform',
           waveColor: 'white',
@@ -79,8 +83,9 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
                     lng: position.coords.longitude
                 };
                 $scope.location = pos;
-                $scope.source = new google.mapsLatLng(position.coords.latitude,position.coords.longitude);
-                $scope.dest = new google.mapsLatLng($scope.listing.coordinates.latitude,$scope.listing.coordinates.longitude);
+                $scope.source = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                debugger;
+                $scope.dest = new google.maps.LatLng($scope.listing.coordinates.latitude,$scope.listing.coordinates.longitude);
                 calculateRotation();
             }, function() {
             });
