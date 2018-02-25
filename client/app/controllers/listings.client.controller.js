@@ -166,6 +166,9 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         else
             $scope.resolvedDirection = "Undefined";
         wavesurfer.play();
+
+        documents.getElementById("alpha").innerHTML = $scope.alpha;
+        documents.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection;
         setTimeout(calculateLocation, 3000);
     }
 
