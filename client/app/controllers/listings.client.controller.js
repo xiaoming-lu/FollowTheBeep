@@ -60,8 +60,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
               .then(function(response) {
                 $scope.listing = response.data;
                 $scope.loading = false;
-
-
+                calculateLocation();
               }, function(error) {
                 $scope.error = 'Unable to retrieve listing with id "' + id + '"\n' + error;
                 $scope.loading = false;
