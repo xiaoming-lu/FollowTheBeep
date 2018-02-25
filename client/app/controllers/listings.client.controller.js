@@ -1,5 +1,7 @@
 angular.module('listings').controller('ListingsController', ['$scope', '$location', '$stateParams', '$state', 'Listings',
   function($scope, $location, $stateParams, $state, Listings){
+      $scope.alpha = 0;
+
 
   //generate the sound wave
   var wavesurfer = WaveSurfer.create({
@@ -13,8 +15,11 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
   wavesurfer.load('/../../audio/beep_sound.wav');
   wavesurfer.setMute(true);
 
+
   $scope.soundLoaded = false;
   $scope.sound =[];
+
+
 
 
       $scope.find = function() {
@@ -31,54 +36,14 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       });
     };
 
+
+
     $scope.findOne = function readOne() {
-      if ('ondeviceorientationabsolute' in window) {
-        // Chrome 50+ specific
-        window.addEventListener('deviceorientationabsolute', handleOrientation);
-      } else if ('ondeviceorientation' in window) {
-        window.addEventListener('deviceorientation', handleOrientation);
-      }
 
-      function handleOrientation(event) {
-        var alpha;
-        if (event.absolute) {
-          alpha = event.alpha;
-        } else if (event.hasOwnProperty('webkitCompassHeading')) {
-          // get absolute orientation for Safari/iOS
-          alpha = 360 - event.webkitCompassHeading; // conversion taken from a comment on Google Documentation, not tested
-        } else {
-          console.log('Could not retrieve absolute orientation');
-        }
-        $scope.direction = alpha;
-        document.getElementById("demo").innerHTML = $scope.direction;
-      }
+
       $scope.loading = true;
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-          $scope.location = pos;
-          console.log(pos);
-        }, function() {
-        });
-      } else {
-        // Browser doesn't support Geolocation
-      }
-      if (window.DeviceOrientationEvent) {
-  // Listen for the deviceorientation event and handle the raw data
-  window.addEventListener('deviceorientation', function(eventData) {
-    var compassdir;
 
-    if(event.webkitCompassHeading) {
-      // Apple works only with this, alpha doesn't work
-      compassdir = event.webkitCompassHeading;
-    }
-    else compassdir = event.alpha;
-    $scope.direction = compassdir;
-  });
-}
+
     if($scope.soundLoaded == false) {
         Listings.readSound().then(function (response) {
             $scope.soundLoaded = true;
@@ -88,21 +53,114 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
             $scope.soundLoaded = false;
         });
     }
+
       var id = $stateParams.listingId;
 
       Listings.read(id)
               .then(function(response) {
                 $scope.listing = response.data;
                 $scope.loading = false;
-                wavesurfer.play();
+
+
               }, function(error) {
                 $scope.error = 'Unable to retrieve listing with id "' + id + '"\n' + error;
                 $scope.loading = false;
               });
 
       // setting the time out, function will call itself every 10 seconds
-       setTimeout(readOne, 3000);
+
     };
+
+    function calculateLocation(){
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                $scope.location = pos;
+                $scope.source = new google.mapsLatLng(position.coords.latitude,position.coords.longitude);
+                $scope.dest = new google.mapsLatLng($scope.listing.coordinates.latitude,$scope.listing.coordinates.longitude);
+                calculateRotation();
+            }, function() {
+            });
+        } else {
+            // Browser doesn't support Geolocation
+        }
+
+    };
+
+    function calculateRotation(){
+
+        if ('ondeviceorientationabsolute' in window) {
+            // Chrome 50+ specific
+            window.addEventListener('deviceorientationabsolute', handleOrientation);
+        } else if ('ondeviceorientation' in window) {
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
+
+
+        function handleOrientation(event) {
+            var alpha;
+            if (event.absolute) {
+                alpha = event.alpha;
+            } else if (event.hasOwnProperty('webkitCompassHeading')) {
+                // get absolute orientation for Safari/iOS
+                alpha = 360 - event.webkitCompassHeading; // conversion taken from a comment on Google Documentation, not tested
+            } else {
+                console.log('Could not retrieve absolute orientation');
+            }
+            $scope.alpha = alpha;
+
+        }
+
+
+        if (window.DeviceOrientationEvent) {
+            // Listen for the deviceorientation event and handle the raw data
+            window.addEventListener('deviceorientation', function(eventData) {
+                var compassdir;
+
+                if(event.webkitCompassHeading) {
+                    // Apple works only with this, alpha doesn't work
+                    compassdir = event.webkitCompassHeading;
+                }
+                else {
+                    compassdir = event.alpha;
+                }
+                $scope.alpha = compassdir;
+            });
+        }
+
+
+        $scope.directionAngle = google.maps.geometry.spherical.computeHeading($scope.source,$scope.dest);
+
+        if($scope.directionAngle<0)
+            $scope.directionAngle += 360;
+
+        $scope.resolvedAngle = ($scope.directionAngle+$scope.alpha)% 360;
+
+        if($scope.resolvedAngle > 22.5 && $scope.resolvedAngle<67.5)
+            $scope.resolvedDirection = "1.5 o'clock";
+        else if($scope.resolvedAngle>= 67.5 && $scope.resolvedAngle <112.5)
+            $scope.resolvedDirection = "3 o'clock";
+        else if ($scope.resolvedAngle>=112.5 && $scope.resolvedAngle< 157.5)
+            $scope.resolvedDirection = "4.5 o'clock";
+        else if($scope.resolvedAngle>=157.5 && $scope.resolvedAngle<202.5)
+            $scope.resolvedDirection = "6 o'clock";
+        else if($scope.resolvedAngle>=202.5 && $scope.resolvedAngle<247.5)
+            $scope.resolvedDirection = "7.5 o'clock";
+        else if($scope.resolvedAngle>=247.5 && $scope.resolvedAngle<292.5)
+            $scope.resolvedDirection = "9 o'clock";
+        else if($scope.resolvedAngle>=292.5 && $scope.resolvedAngle<337.5)
+            $scope.resolvedDirection = "10.5 o'clock";
+        else if($scope.resolvedAngle>=337.5 || $scope.resolvedAngle<=22.5)
+            $scope.resolvedDirection = "12 o'clock";
+        else
+            $scope.resolvedDirection = "Undefined";
+        wavesurfer.play();
+        setTimeout(calculateLocation, 3000);
+    }
 
     $scope.create = function(isValid) {
       $scope.error = null;
@@ -171,13 +229,14 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
     };
 
 
+
+
+
     $scope.remove = function() {
       /*
         Implement the remove function. If the removal is successful, navigate back to 'listing.list'. Otherwise,
         display the error.
        */
-
-
 	  var id = $stateParams.listingId;
 
 	   Listings.delete(id)
@@ -191,10 +250,21 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
     };
 
+
+
+
     /* Bind the success message to the scope if it exists as part of the current state */
     if($stateParams.successMessage) {
       $scope.success = $stateParams.successMessage;
     }
+
+
+
+
+
+
+
+
 
     /* Map properties */
     $scope.map = {
