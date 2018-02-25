@@ -44,6 +44,43 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
     $scope.findOne = function readOne() {
 
+        if ('ondeviceorientationabsolute' in window) {
+            // Chrome 50+ specific
+            window.addEventListener('deviceorientationabsolute', handleOrientation);
+        } else if ('ondeviceorientation' in window) {
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
+
+
+        function handleOrientation(event) {
+            var alpha;
+            if (event.absolute) {
+                alpha = event.alpha;
+            } else if (event.hasOwnProperty('webkitCompassHeading')) {
+                // get absolute orientation for Safari/iOS
+                alpha = 360 - event.webkitCompassHeading; // conversion taken from a comment on Google Documentation, not tested
+            } else {
+                console.log('Could not retrieve absolute orientation');
+            }
+            $scope.alpha = alpha;
+
+        }
+
+        if (window.DeviceOrientationEvent) {
+            // Listen for the deviceorientation event and handle the raw data
+            window.addEventListener('deviceorientation', function(eventData) {
+                var compassdir;
+
+                if(event.webkitCompassHeading) {
+                    // Apple works only with this, alpha doesn't work
+                    compassdir = event.webkitCompassHeading;
+                }
+                else {
+                    compassdir = event.alpha;
+                }
+                $scope.alpha = compassdir;
+            });
+        }
 
       $scope.loading = true;
 
@@ -97,44 +134,10 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
     function calculateRotation(){
 
-        if ('ondeviceorientationabsolute' in window) {
-            // Chrome 50+ specific
-            window.addEventListener('deviceorientationabsolute', handleOrientation);
-        } else if ('ondeviceorientation' in window) {
-            window.addEventListener('deviceorientation', handleOrientation);
-        }
 
 
-        function handleOrientation(event) {
-            var alpha;
-            if (event.absolute) {
-                alpha = event.alpha;
-            } else if (event.hasOwnProperty('webkitCompassHeading')) {
-                // get absolute orientation for Safari/iOS
-                alpha = 360 - event.webkitCompassHeading; // conversion taken from a comment on Google Documentation, not tested
-            } else {
-                console.log('Could not retrieve absolute orientation');
-            }
-            $scope.alpha = alpha;
-
-        }
 
 
-        if (window.DeviceOrientationEvent) {
-            // Listen for the deviceorientation event and handle the raw data
-            window.addEventListener('deviceorientation', function(eventData) {
-                var compassdir;
-
-                if(event.webkitCompassHeading) {
-                    // Apple works only with this, alpha doesn't work
-                    compassdir = event.webkitCompassHeading;
-                }
-                else {
-                    compassdir = event.alpha;
-                }
-                $scope.alpha = compassdir;
-            });
-        }
 
 
         $scope.directionAngle = google.maps.geometry.spherical.computeHeading($scope.source,$scope.dest);
