@@ -20,7 +20,44 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
   wavesurfer.setMute(true);
 
 
-  $scope.soundLoaded = false;
+
+      //initialize the room
+
+      audioContext = new (window.AudioContext || window.webkitAudioContext);
+      // Create a (1st-order Ambisonic) ResonanceAudio scene.
+      scene = new ResonanceAudio(audioContext);
+      // Send scene's rendered binaural output to stereo out.
+      scene.output.connect(audioContext.destination);
+      // Set room acoustics properties.
+      dimensions = {
+          width: 3.1,
+          height: 2.5,
+          depth: 3.4,
+      };
+      materials = {
+          left: 'brick-bare',
+          right: 'curtain-heavy',
+          front: 'marble',
+          back: 'glass-thin',
+          down: 'grass',
+          up: 'transparent',
+      };
+      scene.setRoomProperties(dimensions, materials);
+
+
+      audioElement = document.createElement('audio');
+      audioElement.src = '/../../audio/beep_sound.wav';
+
+      audioElementSource = audioContext.createMediaElementSource(audioElement);
+      // Create a Source, connect desired audio input to it.
+      source = scene.createSource();
+      audioElementSource.connect(source.input);
+
+
+
+
+
+      $scope.soundLoaded = false;
   $scope.sound =[];
 
 
@@ -169,6 +206,19 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
         //document.getElementById("alpha").innerHTML = $scope.alpha;
         document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection;
+       // play the sound.
+
+
+
+
+        // The source position is relative to the origin
+        // (center of the room).
+        source.setPosition(0, -0.707, 0);
+
+        audioElement.play();
+
+
+
         setTimeout(calculateLocation, 3000);
     }
 
