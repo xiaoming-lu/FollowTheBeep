@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f53a447-6e17-441e-82b8-a189d3a6c1f4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/controllers/listings.client.controller.js" afterPath="$PROJECT_DIR$/client/app/controllers/listings.client.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/views/view-listing.client.view.html" afterPath="$PROJECT_DIR$/client/app/views/view-listing.client.view.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listings.client.controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="listings.client.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/controllers/listings.client.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="243" column="41" lean-forward="true" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
+            <state relative-caret-position="230">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-listing.client.view.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="view-listing.client.view.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/views/view-listing.client.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+            <state relative-caret-position="345">
+              <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -124,8 +125,8 @@
         <option value="$PROJECT_DIR$/client/build/resonance-audio.min.js" />
         <option value="$PROJECT_DIR$/client/app/views/list-listings.client.view.html" />
         <option value="$PROJECT_DIR$/client/css/main.css" />
-        <option value="$PROJECT_DIR$/client/app/views/view-listing.client.view.html" />
         <option value="$PROJECT_DIR$/client/app/controllers/listings.client.controller.js" />
+        <option value="$PROJECT_DIR$/client/app/views/view-listing.client.view.html" />
       </list>
     </option>
   </component>
@@ -138,7 +139,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-236" />
     <option name="y" value="40" />
     <option name="width" value="1593" />
@@ -274,15 +275,15 @@
       <workItem from="1519691386490" duration="853000" />
       <workItem from="1519941605199" duration="81000" />
       <workItem from="1520911163942" duration="4848000" />
-      <workItem from="1521049664686" duration="8266000" />
+      <workItem from="1521049664686" duration="8622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55710000" />
+    <option name="totallyTimeSpent" value="56066000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -652,14 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/views/view-listing.client.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/views/create-listing.client.view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -694,8 +687,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/controllers/listings.client.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="243" column="41" lean-forward="true" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
+        <state relative-caret-position="230">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/views/view-listing.client.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
           <folding />
         </state>
       </provider>

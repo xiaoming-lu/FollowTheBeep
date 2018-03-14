@@ -24,14 +24,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       //initialize the room
 
       audioCtx = window.AudioContext || window.webkitAudioContext;
-    $scope.worked = 'false';
-      if(audioCtx){
-          $scope.worked = 'true';
-      }
-      else
-      {
-          $scope.worked = 'false';
-      }
+
       audioContext = new audioCtx();
       // Create a (1st-order Ambisonic) ResonanceAudio scene.
       scene = new ResonanceAudio(audioContext);
@@ -53,8 +46,6 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
           up: 'transparent',
       };
       scene.setRoomProperties(dimensions, materials);
-
-
 
       audioElement = document.createElement('audio');
       audioElement.src = '/../../audio/beep_sound.wav';
