@@ -24,6 +24,14 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       //initialize the room
 
       audioCtx = window.AudioContext || window.webkitAudioContext;
+    $scope.worked = 'false';
+      if(audioCtx){
+          $scope.worked = 'true';
+      }
+      else
+      {
+          $scope.worked = 'false';
+      }
       audioContext = new audioCtx();
       // Create a (1st-order Ambisonic) ResonanceAudio scene.
       scene = new ResonanceAudio(audioContext);
@@ -224,7 +232,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         wavesurfer.play();
 
         //document.getElementById("alpha").innerHTML = $scope.alpha;
-        document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection;
+        document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection +  $scope.worked;
 
         // The source position is relative to the origin
         // (center of the room).
