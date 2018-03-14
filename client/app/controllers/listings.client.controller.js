@@ -23,7 +23,8 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
       //initialize the room
 
-      audioContext = new (window.AudioContext || window.webkitAudioContext);
+      audioCtx = window.AudioContext || window.webkitAudioContext;
+      audioContext = new audioCtx();
       // Create a (1st-order Ambisonic) ResonanceAudio scene.
       scene = new ResonanceAudio(audioContext);
       // Send scene's rendered binaural output to stereo out.
@@ -46,15 +47,17 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       scene.setRoomProperties(dimensions, materials);
 
 
+
       audioElement = document.createElement('audio');
       audioElement.src = '/../../audio/beep_sound.wav';
+
+      //audioElement = document.getElementById('audio');
+      //audioElement.src = '/../../audio/beep_sound.wav';
 
       audioElementSource = audioContext.createMediaElementSource(audioElement);
       // Create a Source, connect desired audio input to it.
       source = scene.createSource();
       audioElementSource.connect(source.input);
-
-
 
 
       $scope.soundLoaded = false;
@@ -232,7 +235,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         // x , y , z
         // +x is right side,  +y is front
        // source.setPosition(-20,0,0);
-        source.setPosition(35.223, 37.366, 10.636);
+        source.setPosition(35.22323, 37.366, 10.636);
         audioElement.play();
 
 
