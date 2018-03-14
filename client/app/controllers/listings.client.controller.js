@@ -50,7 +50,8 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       audioElement = document.createElement('audio');
 
       audioElement.src = '/../../audio/beep_sound.wav';
-      audioElement.load();
+
+      audioElement.controls = true;
       //audioElement = document.getElementById('audio');
       //audioElement.src = '/../../audio/beep_sound.wav';
 
@@ -240,7 +241,10 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
         audioElement.play();
 
-
+        if($scope.soundLoaded == false) {
+            document.body.appendChild(audioElement);
+            $scope.soundLoaded=true;
+        }
         setTimeout(calculateLocation, 3000);
     }
 
