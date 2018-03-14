@@ -30,16 +30,17 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       scene.output.connect(audioContext.destination);
       // Set room acoustics properties.
       dimensions = {
-          width: 3.1,
-          height: 2.5,
-          depth: 3.4,
+          width: 10,
+          height: 10,
+          depth: 10,
       };
+      // curtain-heavy material has better sound effect
       materials = {
-          left: 'brick-bare',
-          right: 'curtain-heavy',
-          front: 'marble',
-          back: 'glass-thin',
-          down: 'grass',
+          left: 'transparent',
+          right: 'transparent',
+          front: 'transparent',
+          back: 'transparent',
+          down: 'transparent',
           up: 'transparent',
       };
       scene.setRoomProperties(dimensions, materials);
@@ -56,9 +57,8 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
 
 
-
       $scope.soundLoaded = false;
-  $scope.sound =[];
+      $scope.sound =[];
 
 
 
@@ -122,7 +122,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       $scope.loading = true;
 
 
-    if($scope.soundLoaded == false) {
+   /* if($scope.soundLoaded == false) {
         Listings.readSound().then(function (response) {
             $scope.soundLoaded = true;
             $scope.sound = response.data;
@@ -131,7 +131,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
             $scope.soundLoaded = false;
         });
     }
-
+*/
       var id = $stateParams.listingId;
 
       Listings.read(id)
@@ -171,54 +171,71 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
     function calculateRotation(){
 
-
-
-
-
-
-
         $scope.directionAngle = google.maps.geometry.spherical.computeHeading($scope.source,$scope.dest);
+        $scope.distance = google.maps.geometry.spherical.computeDistanceBetween($scope.source,$scope.dest);
+
+
+        if( $scope.distance >= 50)
+               $scope.distance = 50;
 
         if($scope.directionAngle<0)
             $scope.directionAngle += 360;
 
         $scope.resolvedAngle = ($scope.directionAngle+$scope.alpha)% 360;
 
-        if($scope.resolvedAngle > 22.5 && $scope.resolvedAngle<67.5)
+        if($scope.resolvedAngle > 22.5 && $scope.resolvedAngle<67.5) {
             $scope.resolvedDirection = "1.5 o'clock";
-        else if($scope.resolvedAngle>= 67.5 && $scope.resolvedAngle <112.5)
+            source.setPosition($scope.distance * Math.cos(45/180*Math.PI),$scope.distance * Math.sin(45/180*Math.PI), 0);
+        }
+        else if($scope.resolvedAngle>= 67.5 && $scope.resolvedAngle <112.5){
             $scope.resolvedDirection = "3 o'clock";
-        else if ($scope.resolvedAngle>=112.5 && $scope.resolvedAngle< 157.5)
+            source.setPosition($scope.distance * Math.cos(0/180*Math.PI),$scope.distance * Math.sin(0/180*Math.PI), 0);
+        }
+        else if ($scope.resolvedAngle>=112.5 && $scope.resolvedAngle< 157.5){
             $scope.resolvedDirection = "4.5 o'clock";
-        else if($scope.resolvedAngle>=157.5 && $scope.resolvedAngle<202.5)
+            source.setPosition($scope.distance * Math.cos(315/180*Math.PI),$scope.distance * Math.sin(315/180*Math.PI), 0);
+        }
+        else if($scope.resolvedAngle>=157.5 && $scope.resolvedAngle<202.5) {
             $scope.resolvedDirection = "6 o'clock";
-        else if($scope.resolvedAngle>=202.5 && $scope.resolvedAngle<247.5)
+            source.setPosition($scope.distance * Math.cos(270/180*Math.PI),$scope.distance * Math.sin(270/180*Math.PI), 0);
+        }
+        else if($scope.resolvedAngle>=202.5 && $scope.resolvedAngle<247.5) {
             $scope.resolvedDirection = "7.5 o'clock";
-        else if($scope.resolvedAngle>=247.5 && $scope.resolvedAngle<292.5)
+            source.setPosition($scope.distance * Math.cos(225/180*Math.PI),$scope.distance * Math.sin(225/180*Math.PI), 0);
+        }
+        else if($scope.resolvedAngle>=247.5 && $scope.resolvedAngle<292.5) {
             $scope.resolvedDirection = "9 o'clock";
-        else if($scope.resolvedAngle>=292.5 && $scope.resolvedAngle<337.5)
+            source.setPosition($scope.distance * Math.cos(180/180*Math.PI),$scope.distance * Math.sin(180/180*Math.PI), 0);
+        }
+        else if($scope.resolvedAngle>=292.5 && $scope.resolvedAngle<337.5) {
             $scope.resolvedDirection = "10.5 o'clock";
-        else if($scope.resolvedAngle>=337.5 || $scope.resolvedAngle<=22.5)
+            source.setPosition($scope.distance * Math.cos(135/180*Math.PI),$scope.distance * Math.sin(135/180*Math.PI), 0);
+        }
+        else if($scope.resolvedAngle>=337.5 || $scope.resolvedAngle<=22.5) {
             $scope.resolvedDirection = "12 o'clock";
-        else
+            source.setPosition($scope.distance * Math.cos(90/180*Math.PI),$scope.distance * Math.sin(90/180*Math.PI), 0);
+        }
+        else{
             $scope.resolvedDirection = "Undefined";
+            source.setPosition(0, 0, 100);
+        }
         wavesurfer.play();
 
         //document.getElementById("alpha").innerHTML = $scope.alpha;
         document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection;
-       // play the sound.
-
-
-
 
         // The source position is relative to the origin
         // (center of the room).
-        source.setPosition(0, -0.707, 0);
+        // if you want manually test the 3d Sound in the computer, uncomment below code, and set the position to whatever number you want.
+        // all other properties are presetted, no need to change them.
 
+        // source.setPosition(0, 0, 0);
+        // x , y , z
+        // +x is right side,  +y is front
+       // source.setPosition(-20,0,0);
         audioElement.play();
 
-
-
+        
         setTimeout(calculateLocation, 3000);
     }
 
