@@ -48,8 +48,9 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       scene.setRoomProperties(dimensions, materials);
 
       audioElement = document.createElement('audio');
-      audioElement.src = '/../../audio/beep_sound.wav';
 
+      audioElement.src = '/../../audio/beep_sound.wav';
+      audioElement.load();
       //audioElement = document.getElementById('audio');
       //audioElement.src = '/../../audio/beep_sound.wav';
 
@@ -224,7 +225,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
         //document.getElementById("alpha").innerHTML = $scope.alpha;
         document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection +  $scope.worked;
-        document.getElementById("test").play();
+        //document.getElementById("test").play();
         // The source position is relative to the origin
         // (center of the room).
         // if you want manually test the 3d Sound in the computer, uncomment below code, and set the position to whatever number you want.
@@ -234,8 +235,10 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         // x , y , z
         // +x is right side,  +y is front
        // source.setPosition(-20,0,0);
-        source.setPosition(35.22323, 37.366, 10.636);
-        //audioElement.play();
+       // source.setPosition(35.22323, 37.366, 10.636);
+
+
+        audioElement.play();
 
 
         setTimeout(calculateLocation, 3000);
