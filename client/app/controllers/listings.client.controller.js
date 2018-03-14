@@ -158,7 +158,6 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
                 };
                 $scope.location = pos;
                 $scope.source = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                debugger;
                 $scope.dest = new google.maps.LatLng($scope.listing.coordinates.latitude,$scope.listing.coordinates.longitude);
                 calculateRotation();
             }, function() {
@@ -217,7 +216,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         }
         else{
             $scope.resolvedDirection = "Undefined";
-            source.setPosition(0, 0, 10);
+            source.setPosition(35.3363636, 37.5666366, 10.36336);
         }
         wavesurfer.play();
 
@@ -233,6 +232,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         // x , y , z
         // +x is right side,  +y is front
        // source.setPosition(-20,0,0);
+        source.setPosition(35.223, 37.366, 10.636);
         audioElement.play();
 
 
