@@ -187,35 +187,35 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         $scope.resolvedAngle = ($scope.directionAngle+$scope.alpha)% 360;
 
         if($scope.resolvedAngle > 22.5 && $scope.resolvedAngle<67.5) {
-            $scope.resolvedDirection = "1.5 o'clock"+$scope.distance * Math.cos(45/180*Math.PI);
+            $scope.resolvedDirection = "1.5 o'clock";
             source.setPosition($scope.distance * Math.cos(45/180*Math.PI),$scope.distance * Math.sin(45/180*Math.PI), 0);
         }
         else if($scope.resolvedAngle>= 67.5 && $scope.resolvedAngle <112.5){
-            $scope.resolvedDirection = "3 o'clock"+$scope.distance * Math.cos(0/180*Math.PI)
+            $scope.resolvedDirection = "3 o'clock";
             source.setPosition($scope.distance * Math.cos(0/180*Math.PI),$scope.distance * Math.sin(0/180*Math.PI), 0);
         }
         else if ($scope.resolvedAngle>=112.5 && $scope.resolvedAngle< 157.5){
-            $scope.resolvedDirection = "4.5 o'clock"+$scope.distance * Math.cos(315/180*Math.PI);
+            $scope.resolvedDirection = "4.5 o'clock";
             source.setPosition($scope.distance * Math.cos(315/180*Math.PI),$scope.distance * Math.sin(315/180*Math.PI), 0);
         }
         else if($scope.resolvedAngle>=157.5 && $scope.resolvedAngle<202.5) {
-            $scope.resolvedDirection = "6 o'clock"+$scope.distance * Math.cos(270/180*Math.PI);
+            $scope.resolvedDirection = "6 o'clock";
             source.setPosition($scope.distance * Math.cos(270/180*Math.PI),$scope.distance * Math.sin(270/180*Math.PI), 0);
         }
         else if($scope.resolvedAngle>=202.5 && $scope.resolvedAngle<247.5) {
-            $scope.resolvedDirection = "7.5 o'clock"+$scope.distance * Math.cos(225/180*Math.PI);
+            $scope.resolvedDirection = "7.5 o'clock";
             source.setPosition($scope.distance * Math.cos(225/180*Math.PI),$scope.distance * Math.sin(225/180*Math.PI), 0);
         }
         else if($scope.resolvedAngle>=247.5 && $scope.resolvedAngle<292.5) {
-            $scope.resolvedDirection = "9 o'clock"+$scope.distance * Math.cos(180/180*Math.PI);
+            $scope.resolvedDirection = "9 o'clock";
             source.setPosition($scope.distance * Math.cos(180/180*Math.PI),$scope.distance * Math.sin(180/180*Math.PI), 0);
         }
         else if($scope.resolvedAngle>=292.5 && $scope.resolvedAngle<337.5) {
-            $scope.resolvedDirection = "10.5 o'clock"+$scope.distance * Math.cos(135/180*Math.PI);
+            $scope.resolvedDirection = "10.5 o'clock";
             source.setPosition($scope.distance * Math.cos(135/180*Math.PI),$scope.distance * Math.sin(135/180*Math.PI), 0);
         }
         else if($scope.resolvedAngle>=337.5 || $scope.resolvedAngle<=22.5) {
-            $scope.resolvedDirection = "12 o'clock"+$scope.distance * Math.cos(90/180*Math.PI);
+            $scope.resolvedDirection = "12 o'clock";
             source.setPosition($scope.distance * Math.cos(90/180*Math.PI),$scope.distance * Math.sin(90/180*Math.PI), 0);
         }
         else{
@@ -225,7 +225,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         wavesurfer.play();
 
         //document.getElementById("alpha").innerHTML = $scope.alpha;
-        document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection +  $scope.worked;
+        document.getElementById("resolvedAngle").innerHTML = $scope.resolvedDirection;
         //document.getElementById("test").play();
         // The source position is relative to the origin
         // (center of the room).
