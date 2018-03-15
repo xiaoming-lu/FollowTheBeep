@@ -51,7 +51,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
       audioElement.src = '/../../audio/beep_sound.wav';
 
-      audioElement.controls = true;
+     // audioElement.controls = true;
       //audioElement = document.getElementById('audio');
       //audioElement.src = '/../../audio/beep_sound.wav';
 
@@ -220,7 +220,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         }
         else{
             $scope.resolvedDirection = "Undefined";
-            source.setPosition(35.3363636, 37.5666366, 10.36336);
+            source.setPosition(0, 0, 100);
         }
         wavesurfer.play();
 
@@ -241,10 +241,10 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
         audioElement.play();
 
-        if($scope.soundLoaded == false) {
+     /*   if($scope.soundLoaded == false) {
             document.body.appendChild(audioElement);
             $scope.soundLoaded=true;
-        }
+        }*/
         setTimeout(calculateLocation, 3000);
     }
 
