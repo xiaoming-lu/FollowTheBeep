@@ -178,8 +178,8 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         $scope.distance = google.maps.geometry.spherical.computeDistanceBetween($scope.source,$scope.dest);
 
 
-        if( $scope.distance >= 35)
-               $scope.distance = 35;
+        if( $scope.distance >= 15)
+               $scope.distance = 15;
 
         if($scope.directionAngle<0)
             $scope.directionAngle += 360;

@@ -1,0 +1,417 @@
+[1mdiff --git a/.idea/workspace.xml b/.idea/workspace.xml[m
+[1mindex 6fac2e0..ddc9c0b 100644[m
+[1m--- a/.idea/workspace.xml[m
+[1m+++ b/.idea/workspace.xml[m
+[36m@@ -2,6 +2,7 @@[m
+ <project version="4">[m
+   <component name="ChangeListManager">[m
+     <list default="true" id="5f53a447-6e17-441e-82b8-a189d3a6c1f4" name="Default" comment="">[m
+[32m+[m[32m      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />[m
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/controllers/listings.client.controller.js" afterPath="$PROJECT_DIR$/client/app/controllers/listings.client.controller.js" />[m
+     </list>[m
+     <ignored path="$PROJECT_DIR$/.tmp/" />[m
+[36m@@ -16,31 +17,31 @@[m
+   </component>[m
+   <component name="FileEditorManager">[m
+     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">[m
+[31m-      <file leaf-file-name="edit-listing.client.view.html" pinned="false" current-in-tab="false">[m
+[31m-        <entry file="file://$PROJECT_DIR$/client/app/views/edit-listing.client.view.html">[m
+[32m+[m[32m      <file leaf-file-name="listings.client.controller.js" pinned="false" current-in-tab="true">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/client/app/controllers/listings.client.controller.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="0">[m
+[31m-              <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />[m
+[32m+[m[32m            <state relative-caret-position="230">[m
+[32m+[m[32m              <caret line="181" column="35" lean-forward="false" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+         </entry>[m
+       </file>[m
+[31m-      <file leaf-file-name="listings.client.controller.js" pinned="false" current-in-tab="true">[m
+[31m-        <entry file="file://$PROJECT_DIR$/client/app/controllers/listings.client.controller.js">[m
+[32m+[m[32m      <file leaf-file-name="listings.client.routes.js" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/client/app/config/listings.client.routes.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+             <state relative-caret-position="368">[m
+[31m-              <caret line="181" column="35" lean-forward="false" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />[m
+[32m+[m[32m              <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="29" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+         </entry>[m
+       </file>[m
+[31m-      <file leaf-file-name="map-listings.client.view.html" pinned="false" current-in-tab="false">[m
+[31m-        <entry file="file://$PROJECT_DIR$/client/app/views/map-listings.client.view.html">[m
+[32m+[m[32m      <file leaf-file-name="coordinates.server.controller.js" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/server/controllers/coordinates.server.controller.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="147">[m
+[31m-              <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />[m
+[32m+[m[32m            <state relative-caret-position="0">[m
+[32m+[m[32m              <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+[36m@@ -49,48 +50,58 @@[m
+       <file leaf-file-name="list-listings.client.view.html" pinned="false" current-in-tab="false">[m
+         <entry file="file://$PROJECT_DIR$/client/app/views/list-listings.client.view.html">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="354">[m
+[32m+[m[32m            <state relative-caret-position="1058">[m
+               <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+         </entry>[m
+       </file>[m
+[31m-      <file leaf-file-name="create-listing.client.view.html" pinned="false" current-in-tab="false">[m
+[31m-        <entry file="file://$PROJECT_DIR$/client/app/views/create-listing.client.view.html">[m
+[32m+[m[32m      <file leaf-file-name="listings.server.controller.js" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/server/controllers/listings.server.controller.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="0">[m
+[31m-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />[m
+[32m+[m[32m            <state relative-caret-position="437">[m
+[32m+[m[32m              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+         </entry>[m
+       </file>[m
+[31m-      <file leaf-file-name="listings.server.controller.js" pinned="false" current-in-tab="false">[m
+[31m-        <entry file="file://$PROJECT_DIR$/server/controllers/listings.server.controller.js">[m
+[32m+[m[32m      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/server/config/app.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="437">[m
+[31m-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />[m
+[32m+[m[32m            <state relative-caret-position="138">[m
+[32m+[m[32m              <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+         </entry>[m
+       </file>[m
+[31m-      <file leaf-file-name="view-listing.client.view.html" pinned="false" current-in-tab="false">[m
+[31m-        <entry file="file://$PROJECT_DIR$/client/app/views/view-listing.client.view.html">[m
+[32m+[m[32m      <file leaf-file-name="config.example.js" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/server/config/config.example.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="345">[m
+[31m-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />[m
+[32m+[m[32m            <state relative-caret-position="0">[m
+[32m+[m[32m              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+         </entry>[m
+       </file>[m
+[31m-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">[m
+[31m-        <entry file="file://$PROJECT_DIR$/client/index.html">[m
+[32m+[m[32m      <file leaf-file-name="express.js" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/server/config/express.js">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+[31m-            <state relative-caret-position="413">[m
+[31m-              <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />[m
+[32m+[m[32m            <state relative-caret-position="851">[m
+[32m+[m[32m              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />[m
+[32m+[m[32m              <folding />[m
+[32m+[m[32m            </state>[m
+[32m+[m[32m          </provider>[m
+[32m+[m[32m        </entry>[m
+[32m+[m[32m      </file>[m
+[32m+[m[32m      <file leaf-file-name="view-listing.client.view.html" pinned="false" current-in-tab="false">[m
+[32m+[m[32m        <entry file="file://$PROJECT_DIR$/client/app/views/view-listing.client.view.html">[m
+[32m+[m[32m          <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m            <state relative-caret-position="483">[m
+[32m+[m[32m              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+[36m@@ -100,7 +111,7 @@[m
+         <entry file="file://$PROJECT_DIR$/client/css/main.css">[m
+           <provider selected="true" editor-type-id="text-editor">[m
+             <state relative-caret-position="1426">[m
+[31m-              <caret line="62" column="3" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />[m
+[32m+[m[32m              <caret line="62" column="3" lean-forward="false" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />[m
+               <folding />[m
+             </state>[m
+           </provider>[m
+[36m@@ -143,9 +154,9 @@[m
+   <component name="NodeModulesDirectoryManager">[m
+     <handled-path value="$PROJECT_DIR$/node_modules" />[m
+   </component>[m
+[31m-  <component name="ProjectFrameBounds" extendedState="6">[m
+[31m-    <option name="x" value="-236" />[m
+[31m-    <option name="y" value="40" />[m
+[32m+[m[32m  <component name="ProjectFrameBounds" extendedState="7">[m
+[32m+[m[32m    <option name="x" value="196" />[m
+[32m+[m[32m    <option name="y" value="85" />[m
+     <option name="width" value="1593" />[m
+     <option name="height" value="817" />[m
+   </component>[m
+[36m@@ -192,6 +203,13 @@[m
+               <item name="FollowTheBeep" type="462c0819:PsiDirectoryNode" />[m
+               <item name="client" type="462c0819:PsiDirectoryNode" />[m
+               <item name="app" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="config" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m            </path>[m
+[32m+[m[32m            <path>[m
+[32m+[m[32m              <item name="FollowTheBeep" type="b2602c69:ProjectViewProjectNode" />[m
+[32m+[m[32m              <item name="FollowTheBeep" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="client" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="app" type="462c0819:PsiDirectoryNode" />[m
+               <item name="controllers" type="462c0819:PsiDirectoryNode" />[m
+             </path>[m
+             <path>[m
+[36m@@ -219,6 +237,23 @@[m
+               <item name="client" type="462c0819:PsiDirectoryNode" />[m
+               <item name="css" type="462c0819:PsiDirectoryNode" />[m
+             </path>[m
+[32m+[m[32m            <path>[m
+[32m+[m[32m              <item name="FollowTheBeep" type="b2602c69:ProjectViewProjectNode" />[m
+[32m+[m[32m              <item name="FollowTheBeep" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="server" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m            </path>[m
+[32m+[m[32m            <path>[m
+[32m+[m[32m              <item name="FollowTheBeep" type="b2602c69:ProjectViewProjectNode" />[m
+[32m+[m[32m              <item name="FollowTheBeep" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="server" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="config" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m            </path>[m
+[32m+[m[32m            <path>[m
+[32m+[m[32m              <item name="FollowTheBeep" type="b2602c69:ProjectViewProjectNode" />[m
+[32m+[m[32m              <item name="FollowTheBeep" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="server" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m              <item name="controllers" type="462c0819:PsiDirectoryNode" />[m
+[32m+[m[32m            </path>[m
+           </expand>[m
+           <select />[m
+         </subPane>[m
+[36m@@ -279,22 +314,27 @@[m
+       <workItem from="1519691386490" duration="853000" />[m
+       <workItem from="1519941605199" duration="81000" />[m
+       <workItem from="1520911163942" duration="4848000" />[m
+[31m-      <workItem from="1521049664686" duration="13849000" />[m
+[32m+[m[32m      <workItem from="1521049664686" duration="14446000" />[m
+[32m+[m[32m      <workItem from="1521826885839" duration="608000" />[m
+[32m+[m[32m      <workItem from="1521834284062" duration="921000" />[m
+[32m+[m[32m      <workItem from="1522962069713" duration="115000" />[m
+[32m+[m[32m      <workItem from="1523919109661" duration="607000" />[m
+[32m+[m[32m      <workItem from="1524421327614" duration="107000" />[m
+     </task>[m
+     <servers />[m
+   </component>[m
+   <component name="TimeTrackingManager">[m
+[31m-    <option name="totallyTimeSpent" value="61293000" />[m
+[32m+[m[32m    <option name="totallyTimeSpent" value="64248000" />[m
+   </component>[m
+   <component name="ToolWindowManager">[m
+[31m-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />[m
+[32m+[m[32m    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />[m
+     <editor active="true" />[m
+     <layout>[m
+       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />[m
+       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />[m
+       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />[m
+       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />[m
+[31m-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31798247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />[m
+[32m+[m[32m      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31798247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />[m
+       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />[m
+       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />[m
+       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />[m
+[36m@@ -551,34 +591,6 @@[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/client/app/config/listings.client.routes.js">[m
+[31m-      <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="368">[m
+[31m-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="29" />[m
+[31m-        </state>[m
+[31m-      </provider>[m
+[31m-    </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/server/config/express.js">[m
+[31m-      <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="851">[m
+[31m-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />[m
+[31m-        </state>[m
+[31m-      </provider>[m
+[31m-    </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/server/config/config.example.js">[m
+[31m-      <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="0">[m
+[31m-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />[m
+[31m-        </state>[m
+[31m-      </provider>[m
+[31m-    </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/server/config/app.js">[m
+[31m-      <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="138">[m
+[31m-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />[m
+[31m-        </state>[m
+[31m-      </provider>[m
+[31m-    </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/app/app.js">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+         <state relative-caret-position="437">[m
+[36m@@ -617,27 +629,17 @@[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/server/controllers/coordinates.server.controller.js">[m
+[31m-      <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="0">[m
+[31m-          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />[m
+[31m-          <folding />[m
+[31m-        </state>[m
+[31m-      </provider>[m
+[31m-    </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/build/resonance-audio.min.js">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+         <state relative-caret-position="216">[m
+           <caret line="15" column="2511" lean-forward="false" selection-start-line="15" selection-start-column="2509" selection-end-line="15" selection-end-column="2511" />[m
+[31m-          <folding />[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/index.html">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="413">[m
+[32m+[m[32m        <state relative-caret-position="1081">[m
+           <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />[m
+[31m-          <folding />[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+[36m@@ -645,37 +647,26 @@[m
+       <provider selected="true" editor-type-id="text-editor">[m
+         <state relative-caret-position="0">[m
+           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />[m
+[31m-          <folding />[m
+[31m-        </state>[m
+[31m-      </provider>[m
+[31m-    </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/server/controllers/listings.server.controller.js">[m
+[31m-      <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="437">[m
+[31m-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />[m
+[31m-          <folding />[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/app/views/edit-listing.client.view.html">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="0">[m
+[32m+[m[32m        <state relative-caret-position="184">[m
+           <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />[m
+[31m-          <folding />[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/app/views/map-listings.client.view.html">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="147">[m
+[32m+[m[32m        <state relative-caret-position="276">[m
+           <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />[m
+[31m-          <folding />[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/app/views/view-listing.client.view.html">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="345">[m
+[32m+[m[32m        <state relative-caret-position="483">[m
+           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />[m
+           <folding />[m
+         </state>[m
+[36m@@ -683,7 +674,7 @@[m
+     </entry>[m
+     <entry file="file://$PROJECT_DIR$/client/app/views/list-listings.client.view.html">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+[31m-        <state relative-caret-position="354">[m
+[32m+[m[32m        <state relative-caret-position="1058">[m
+           <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />[m
+           <folding />[m
+         </state>[m
+[36m@@ -692,14 +683,62 @@[m
+     <entry file="file://$PROJECT_DIR$/client/css/main.css">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+         <state relative-caret-position="1426">[m
+[31m-          <caret line="62" column="3" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />[m
+[32m+[m[32m          <caret line="62" column="3" lean-forward="false" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />[m
+           <folding />[m
+         </state>[m
+       </provider>[m
+     </entry>[m
+[31m-    <entry file="file://$PROJECT_DIR$/client/app/controllers/listings.client.controller.js">[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/client/app/config/listings.client.routes.js">[m
+       <provider selected="true" editor-type-id="text-editor">[m
+         <state relative-caret-position="368">[m
+[32m+[m[32m          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="29" />[m
+[32m+[m[32m          <folding />[m
+[32m+[m[32m        </state>[m
+[32m+[m[32m      </provider>[m
+[32m+[m[32m    </entry>[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/server/config/app.js">[m
+[32m+[m[32m      <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m        <state relative-caret-position="138">[m
+[32m+[m[32m          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />[m
+[32m+[m[32m          <folding />[m
+[32m+[m[32m        </state>[m
+[32m+[m[32m      </provider>[m
+[32m+[m[32m    </entry>[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/server/config/config.example.js">[m
+[32m+[m[32m      <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m        <state relative-caret-position="0">[m
+[32m+[m[32m          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />[m
+[32m+[m[32m          <folding />[m
+[32m+[m[32m        </state>[m
+[32m+[m[32m      </provider>[m
+[32m+[m[32m    </entry>[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/server/config/express.js">[m
+[32m+[m[32m      <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m        <state relative-caret-position="851">[m
+[32m+[m[32m          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />[m
+[32m+[m[32m          <folding />[m
+[32m+[m[32m        </state>[m
+[32m+[m[32m      </provider>[m
+[32m+[m[32m    </entry>[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/server/controllers/coordinates.server.controller.js">[m
+[32m+[m[32m      <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m        <state relative-caret-position="0">[m
+[32m+[m[32m          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />[m
+[32m+[m[32m          <folding />[m
+[32m+[m[32m        </state>[m
+[32m+[m[32m      </provider>[m
+[32m+[m[32m    </entry>[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/server/controllers/listings.server.controller.js">[m
+[32m+[m[32m      <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m        <state relative-caret-position="437">[m
+[32m+[m[32m          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />[m
+[32m+[m[32m          <folding />[m
+[32m+[m[32m        </state>[m
+[32m+[m[32m      </provider>[m
+[32m+[m[32m    </entry>[m
+[32m+[m[32m    <entry file="file://$PROJECT_DIR$/client/app/controllers/listings.client.controller.js">[m
+[32m+[m[32m      <provider selected="true" editor-type-id="text-editor">[m
+[32m+[m[32m        <state relative-caret-position="230">[m
+           <caret line="181" column="35" lean-forward="false" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />[m
+           <folding />[m
+         </state>[m
+[1mdiff --git a/client/app/controllers/listings.client.controller.js b/client/app/controllers/listings.client.controller.js[m
+[1mindex 086b4a6..006c358 100644[m
+[1m--- a/client/app/controllers/listings.client.controller.js[m
+[1m+++ b/client/app/controllers/listings.client.controller.js[m
+[36m@@ -178,8 +178,8 @@[m [mangular.module('listings').controller('ListingsController', ['$scope', '$locatio[m
+         $scope.distance = google.maps.geometry.spherical.computeDistanceBetween($scope.source,$scope.dest);[m
+ [m
+ [m
+[31m-        if( $scope.distance >= 35)[m
+[31m-               $scope.distance = 35;[m
+[32m+[m[32m        if( $scope.distance >= 15)[m
+[32m+[m[32m               $scope.distance = 15;[m
+ [m
+         if($scope.directionAngle<0)[m
+             $scope.directionAngle += 360;[m
